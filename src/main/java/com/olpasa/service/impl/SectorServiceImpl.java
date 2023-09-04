@@ -15,17 +15,20 @@ public class SectorServiceImpl implements ISectorService{
 
 	@Autowired
 	private ISectorRepo sectorRepo;
-	
+
 	@Override
-	public void registrar(Sector sec) {
-		sectorRepo.save(sec);
-		
+	public Sector registrar(Sector sec) {
+		return sectorRepo.save(sec);
 	}
 
 	@Override
-	public void modificar(Sector sec) {
-		sectorRepo.save(sec);
-		
+	public Sector modificar(Sector sec) {
+		return sectorRepo.save(sec);
+	}
+
+	@Override
+	public Sector leerPorId(Integer id) {
+		return sectorRepo.findById(id).orElse(null);
 	}
 
 	@Override
@@ -34,18 +37,10 @@ public class SectorServiceImpl implements ISectorService{
 	}
 
 	@Override
-	public Optional<Sector> leerPord(Integer id) {
-		return sectorRepo.findById(id);
+	public void eliminar(Long id) {
+		//sectorRepo.deleteById(id);
 	}
-
-	@Override
-	public void eliminar(Integer id) {
-		// TODO Auto-generated method stub
-		
-	}
-
 	
-
 	
 	
 }
