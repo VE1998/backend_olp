@@ -21,6 +21,8 @@ public class Clasificacion {
 	
 	@Column(name = "usuario")
 	private String usuario;
+	
+	
 
 	public Integer getId_clas() {
 		return id_clas;
