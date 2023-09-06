@@ -58,7 +58,7 @@ public class Pesaje {
 	private BigDecimal castigo_planilla;
 	
 	@ManyToOne
-	@JoinColumn(name = "id_-vehiculo", nullable = false, foreignKey = @ForeignKey(name = "fk_pesaje_vehiculo"))
+	@JoinColumn(name = "id_vehiculo", nullable = false, foreignKey = @ForeignKey(name = "fk_pesaje_vehiculo"))
 	private Vehiculo id_vehiculo;
 	
 	@ManyToOne
@@ -107,10 +107,8 @@ public class Pesaje {
 	@Column(name = "usuario_version")
 	private String usuario_version;
 	
-	@Column(name = "fecha_ingreso")
-	private LocalDateTime fecha_ingreso;
 	
-	@Column(name = "fecha_salida")
+	@Column(name = "fecha_salida", columnDefinition = "DATETIME2")
 	private LocalDateTime fecha_salida;
 	
 	@Column(name = "fecha_anul")
@@ -347,13 +345,6 @@ public class Pesaje {
 		this.usuario_version = usuario_version;
 	}
 
-	public LocalDateTime getFecha_ingreso() {
-		return fecha_ingreso;
-	}
-
-	public void setFecha_ingreso(LocalDateTime fecha_ingreso) {
-		this.fecha_ingreso = fecha_ingreso;
-	}
 
 	public LocalDateTime getFecha_salida() {
 		return fecha_salida;
