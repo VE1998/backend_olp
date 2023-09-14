@@ -25,35 +25,35 @@ public class ConductorController {
 
 	
 	@Autowired
-	private IConductorService sectorService;
+	private IConductorService conductorService;
 	
 	@GetMapping
 	public ResponseEntity<List<Conductor>> listar(){
-		List<Conductor> listrarConductor = sectorService.listar();
+		List<Conductor> listrarConductor = conductorService.listar();
 		return new ResponseEntity<List<Conductor>>(listrarConductor, HttpStatus.OK);
 	}
 	
 	@GetMapping("/{codigo}")
 	public ResponseEntity<Conductor> leerPorId(@PathVariable("codigo") Integer codigo){
-		Conductor sectorId = sectorService.leerPorId(codigo);
-		if(sectorId == null) {
+		Conductor conductorId = conductorService.leerPorId(codigo);
+		if(conductorId == null) {
 			throw new ModelNotFoundException("Id no Encontrado: "+ codigo);
 		}
-		return new ResponseEntity<Conductor>(sectorId, HttpStatus.OK);
+		return new ResponseEntity<Conductor>(conductorId, HttpStatus.OK);
 	}
 	
 	@PostMapping
-	public ResponseEntity<Object> registrar (@RequestBody Conductor sec) {
-		Conductor sector = sectorService.registrar(sec);
+	public ResponseEntity<Conductor> registrar (@RequestBody Conductor cond) {
+		Conductor conductor = conductorService.registrar(cond);
 		//localhost:8080/sector/1
-		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(sec.getCodigo()).toUri();
+		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(cond.getCodigo()).toUri();
 		return ResponseEntity.created(location).build();
 	}
 	
 	@PutMapping
-	public ResponseEntity<Object> modificar (@RequestBody Conductor sec) {
-		sectorService.modificar(sec);
-		return new ResponseEntity<Object>(HttpStatus.OK);
+	public ResponseEntity<Conductor> modificar (@RequestBody Conductor sec) {
+		conductorService.modificar(sec);
+		return new ResponseEntity<Conductor>(HttpStatus.OK);
 	}
 	
 }

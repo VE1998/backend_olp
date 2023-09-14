@@ -43,7 +43,7 @@ public class SectorController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<Object> registrar (@RequestBody Sector sec) {
+	public ResponseEntity<Sector> registrar (@RequestBody Sector sec) {
 		Sector sector = sectorService.registrar(sec);
 		//localhost:8080/sector/1
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(sec.getId_sector()).toUri();

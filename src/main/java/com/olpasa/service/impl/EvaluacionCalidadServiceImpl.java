@@ -17,13 +17,13 @@ public class EvaluacionCalidadServiceImpl implements IEvaluacionCalidadService{
 	private IEvaluacionCalidadRepo evaluacionCalidadRepo;
 
 	@Override
-	public EvaluacionCalidad registrar(EvaluacionCalidad sec) {
-		return evaluacionCalidadRepo.save(sec);
+	public EvaluacionCalidad registrar(EvaluacionCalidad ev) {
+		return evaluacionCalidadRepo.save(ev);
 	}
 
 	@Override
-	public EvaluacionCalidad modificar(EvaluacionCalidad sec) {
-		return evaluacionCalidadRepo.save(sec);
+	public EvaluacionCalidad modificar(EvaluacionCalidad ev) {
+		return evaluacionCalidadRepo.save(ev);
 	}
 
 	@Override

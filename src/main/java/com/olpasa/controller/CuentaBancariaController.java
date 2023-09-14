@@ -22,7 +22,7 @@ import com.olpasa.service.ICuentaBancariaService;
 
 
 @RestController
-@RequestMapping("/cuentabancaria")
+@RequestMapping("/cuentabancarias")
 public class CuentaBancariaController {
 
 	@Autowired

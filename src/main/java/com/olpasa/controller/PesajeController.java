@@ -33,7 +33,7 @@ public class PesajeController {
 		return new ResponseEntity<List<Pesaje>>(listrarPesaje, HttpStatus.OK);
 	}
 	
-	@GetMapping("/{id_sector}")
+	@GetMapping("/{id_pesaje}")
 	public ResponseEntity<Pesaje> leerPorId(@PathVariable("id_pesaje") Integer id_pesaje){
 		Pesaje pesajeId = pesajeService.leerPorId(id_pesaje);
 		if(pesajeId == null) {
