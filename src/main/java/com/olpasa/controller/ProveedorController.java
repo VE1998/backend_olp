@@ -35,11 +35,11 @@ public class ProveedorController {
 	
 	@GetMapping("/{id_sector}")
 	public ResponseEntity<Proveedor> leerPorId(@PathVariable("codigo") Integer codigo){
-		Proveedor sectorId = proveedorService.leerPorId(codigo);
-		if(sectorId == null) {
+		Proveedor proveedorId = proveedorService.leerPorId(codigo);
+		if(proveedorId == null) {
 			throw new ModelNotFoundException("Id no Encontrado: "+ codigo);
 		}
-		return new ResponseEntity<Proveedor>(sectorId, HttpStatus.OK);
+		return new ResponseEntity<Proveedor>(proveedorId, HttpStatus.OK);
 	}
 	
 	@PostMapping
