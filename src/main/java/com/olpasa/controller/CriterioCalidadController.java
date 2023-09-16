@@ -22,7 +22,7 @@ import com.olpasa.service.ICriterioCalidadService;
 import com.olpasa.service.ICriterioCalidadService;
 
 @RestController
-@RequestMapping("/criteriocalidades")
+@RequestMapping("/criterio_calidades")
 public class CriterioCalidadController {
 
 	@Autowired
@@ -44,10 +44,10 @@ public class CriterioCalidadController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<Object> registrar (@RequestBody CriterioCalidad sec) {
-		CriterioCalidad sector = criterioCalidadService.registrar(sec);
+	public ResponseEntity<Object> registrar (@RequestBody CriterioCalidad cr) {
+		CriterioCalidad criterioCalidad = criterioCalidadService.registrar(cr);
 		//localhost:8080/sector/1
-		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(sec.getId_criterio()).toUri();
+		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(cr.getId_criterio()).toUri();
 		return ResponseEntity.created(location).build();
 	}
 	

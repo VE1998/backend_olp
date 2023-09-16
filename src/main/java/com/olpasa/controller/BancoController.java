@@ -32,14 +32,16 @@ public class BancoController {
 		return new ResponseEntity<List<Banco>>(listrarBanco, HttpStatus.OK);
 	}
 	
-	@GetMapping("/{id_bantor}")
-	public ResponseEntity<Banco> leerPorId(@PathVariable("id_bantor") Integer id_bantor){
-		Banco bantorId = bancoService.leerPorId(id_bantor);
+	
+	@GetMapping("/{id_banco}")
+	public ResponseEntity<Banco> leerPorId(@PathVariable("id_banco") Integer id_banco){
+		Banco bantorId = bancoService.leerPorId(id_banco);
 		if(bantorId == null) {
-			throw new ModelNotFoundException("Id no Encontrado: "+ id_bantor);
+			throw new ModelNotFoundException("Id no Encontrado: "+ id_banco);
 		}
 		return new ResponseEntity<Banco>(bantorId, HttpStatus.OK);
 	}
+	
 	
 	@PostMapping
 	public ResponseEntity<Object> registrar (@RequestBody Banco ban) {

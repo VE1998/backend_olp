@@ -36,7 +36,7 @@ public class ClasificacionContableController {
 		return new ResponseEntity<List<ClasificacionContable>>(listrarClasificacionContable, HttpStatus.OK);
 	}
 	
-	@GetMapping("/{id_sector}")
+	@GetMapping("/{id_clasificacion}")
 	public ResponseEntity<ClasificacionContable> leerPorId(@PathVariable("id_clasificacion") Integer id_clasificacion){
 		ClasificacionContable clasificacionId = ClasificacionContableService.leerPorId(id_clasificacion);
 		if(clasificacionId == null) {

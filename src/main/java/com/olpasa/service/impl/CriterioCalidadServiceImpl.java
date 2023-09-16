@@ -18,13 +18,13 @@ public class CriterioCalidadServiceImpl implements ICriterioCalidadService{
 	private ICriterioCalidadRepo criterioCalidadRepo;
 
 	@Override
-	public CriterioCalidad registrar(CriterioCalidad sec) {
-		return criterioCalidadRepo.save(sec);
+	public CriterioCalidad registrar(CriterioCalidad cr) {
+		return criterioCalidadRepo.save(cr);
 	}
 
 	@Override
-	public CriterioCalidad modificar(CriterioCalidad sec) {
-		return criterioCalidadRepo.save(sec);
+	public CriterioCalidad modificar(CriterioCalidad cr) {
+		return criterioCalidadRepo.save(cr);
 	}
 
 	@Override
