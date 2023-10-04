@@ -43,7 +43,7 @@ public class UnidadMedidaController {
 	
 	@PostMapping
 	public ResponseEntity<Object> registrar (@RequestBody UnidadMedida um) {
-		UnidadMedida sector = unidadMedidaService.registrar(um);
+		UnidadMedida unidad = unidadMedidaService.registrar(um);
 		//localhost:8080/sector/1
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(um.getCodigo_um()).toUri();
 		return ResponseEntity.created(location).build();
