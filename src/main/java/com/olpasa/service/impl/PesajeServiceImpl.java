@@ -17,13 +17,13 @@ public class PesajeServiceImpl implements IPesajeService{
 	private IPesajeRepo pesajerRepo;
 
 	@Override
-	public Pesaje registrar(Pesaje sec) {
-		return pesajerRepo.save(sec);
+	public Pesaje registrar(Pesaje pe) {
+		return pesajerRepo.save(pe);
 	}
 
 	@Override
-	public Pesaje modificar(Pesaje sec) {
-		return pesajerRepo.save(sec);
+	public Pesaje modificar(Pesaje pe) {
+		return pesajerRepo.save(pe);
 	}
 
 	@Override
@@ -40,7 +40,15 @@ public class PesajeServiceImpl implements IPesajeService{
 	public void eliminar(Long id) {
 		//sectorRepo.deleteById(id);
 	}
+
+	@Override
+	public List<Pesaje> listarPorEstado(String estado) {	
+		return pesajerRepo.leerPorEstado(estado);
+	}
+
 	
 	
+	
+		
 	
 }

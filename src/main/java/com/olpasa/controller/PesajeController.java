@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -42,12 +43,12 @@ public class PesajeController {
 		return new ResponseEntity<Pesaje>(pesajeId, HttpStatus.OK);
 	}
 	
-	@PostMapping
-	public ResponseEntity<Object> registrar (@RequestBody Pesaje pes) {
-		Pesaje sector = pesajeService.registrar(pes);
-		//localhost:8080/sector/1
-		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(pes.getId_pesaje()).toUri();
-		return ResponseEntity.created(location).build();
+	
+	
+	@GetMapping("/destarar/{estado}")
+	public ResponseEntity<List<Pesaje>> listarPorEstado(@PathVariable("estado") String estado){
+		List<Pesaje> listrarPesaje = pesajeService.listarPorEstado(estado);
+		return new ResponseEntity<List<Pesaje>>(listrarPesaje, HttpStatus.OK);
 	}
 	
 	@PutMapping
