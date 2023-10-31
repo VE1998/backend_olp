@@ -12,4 +12,5 @@ public interface ICRUD<T> {
 	List<T> listar();
 	void eliminar(Long id);
 	
+	
 }

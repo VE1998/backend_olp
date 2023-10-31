@@ -1,9 +1,14 @@
 package com.olpasa.controller;
 
+<<<<<<< HEAD
 
 import java.util.List;
 
 
+=======
+import java.util.ArrayList;
+import java.util.List;
+>>>>>>> 8df902af2bf1163eb837a6fe1a88401b0391eb13
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -41,11 +46,13 @@ public class PesajeController {
 	
 	
 	
-	@GetMapping("/destarar/{estado}")
-	public ResponseEntity<List<Pesaje>> listarPorEstado(@PathVariable("estado") String estado){
-		List<Pesaje> listrarPesaje = pesajeService.listarPorEstado(estado);
-		return new ResponseEntity<List<Pesaje>>(listrarPesaje, HttpStatus.OK);
+	@GetMapping(value="/destarar/{estado}") 
+	public ResponseEntity<List<Pesaje>> listarPorEstado(@PathVariable("estado") String estado){		
+	    List<Pesaje> listarPesaje = new ArrayList<>();
+	    listarPesaje = pesajeService.listarPorEstado(estado);
+	    return new ResponseEntity<List<Pesaje>>(listarPesaje, HttpStatus.OK);
 	}
+
 	
 	@GetMapping("/operacion/{id_to}")
 	public ResponseEntity<List<Pesaje>> listarPorOperacion(@PathVariable("id_to") Integer id_to){

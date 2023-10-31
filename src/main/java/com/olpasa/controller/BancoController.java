@@ -32,20 +32,18 @@ public class BancoController {
 		return new ResponseEntity<List<Banco>>(listrarBanco, HttpStatus.OK);
 	}
 	
-	
 	@GetMapping("/{id_banco}")
 	public ResponseEntity<Banco> leerPorId(@PathVariable("id_banco") Integer id_banco){
-		Banco bantorId = bancoService.leerPorId(id_banco);
-		if(bantorId == null) {
+		Banco buscarPorId = bancoService.leerPorId(id_banco);
+		if(buscarPorId == null) {
 			throw new ModelNotFoundException("Id no Encontrado: "+ id_banco);
 		}
-		return new ResponseEntity<Banco>(bantorId, HttpStatus.OK);
+		return new ResponseEntity<Banco>(buscarPorId, HttpStatus.OK);
 	}
-	
-	
+		
 	@PostMapping
 	public ResponseEntity<Object> registrar (@RequestBody Banco ban) {
-		Banco bantor = bancoService.registrar(ban);
+		Banco banco = bancoService.registrar(ban);
 		//localhost:8080/bantor/1
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(ban.getId_banco()).toUri();
 		return ResponseEntity.created(location).build();
