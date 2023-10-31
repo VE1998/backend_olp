@@ -54,9 +54,5 @@ public class UnidadMedida {
 		this.codigo_sunat = codigo_sunat;
 	}
 	
-	
-	
-	
-	
-	
+		
 }

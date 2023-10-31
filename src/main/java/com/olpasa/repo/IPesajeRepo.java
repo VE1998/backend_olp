@@ -11,11 +11,19 @@ import com.olpasa.model.Pesaje;
 
 import jakarta.transaction.Transactional;
 
+
 public interface IPesajeRepo extends JpaRepository<Pesaje, Integer>{
 	
 	
 	@Query(value = "SELECT * FROM pesaje WHERE estado=:estado", nativeQuery = true)
 	List<Pesaje> leerPorEstado(@Param("estado") String estado);
+	
+	@Query(value = "SELECT * FROM pesaje WHERE id_to=:id_to", nativeQuery = true)
+	List<Pesaje> leerPorTipoOperacion(@Param("id_to") Integer id_to);
+	
+	@Query(value = "SELECT * FROM pesaje WHERE cod_producto=:cod_producto", nativeQuery = true)
+	List<Pesaje> leerPorProducto(@Param("cod_producto") Integer cod_producto);
+	
 	
 	
 }

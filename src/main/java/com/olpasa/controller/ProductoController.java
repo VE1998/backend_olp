@@ -33,7 +33,7 @@ public class ProductoController {
 		return new ResponseEntity<List<Producto>>(listrarProducto, HttpStatus.OK);
 	}
 	
-	@GetMapping("/{id_sector}")
+	@GetMapping("/{cod_producto}")
 	public ResponseEntity<Producto> leerPorId(@PathVariable("cod_producto") Integer cod_producto){
 		Producto sectorId = productoService.leerPorId(cod_producto);
 		if(sectorId == null) {
@@ -44,7 +44,7 @@ public class ProductoController {
 	
 	@PostMapping
 	public ResponseEntity<Object> registrar (@RequestBody Producto pro) {
-		Producto sector = productoService.registrar(pro);
+		Producto productos = productoService.registrar(pro);
 		//localhost:8080/sector/1
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(pro.getCod_producto()).toUri();
 		return ResponseEntity.created(location).build();

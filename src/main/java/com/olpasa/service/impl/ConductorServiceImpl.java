@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.olpasa.model.Conductor;
+import com.olpasa.model.Pesaje;
 import com.olpasa.repo.IConductorRepo;
 import com.olpasa.service.IConductorService;
 
@@ -39,6 +40,11 @@ public class ConductorServiceImpl implements IConductorService{
 	public void eliminar(Long id) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	@Override
+	public List<Conductor> leerPorEstado(String estado) {	
+		return conductorRepo.buscarPorEstado(estado);
 	}
 
 }

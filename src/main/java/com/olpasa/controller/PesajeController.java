@@ -1,22 +1,18 @@
 package com.olpasa.controller;
 
-import java.net.URI;
+
 import java.util.List;
-import java.util.Optional;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
 import com.olpasa.exception.ModelNotFoundException;
 import com.olpasa.model.Pesaje;
 import com.olpasa.service.IPesajeService;
@@ -30,8 +26,8 @@ public class PesajeController {
 	
 	@GetMapping
 	public ResponseEntity<List<Pesaje>> listar(){
-		List<Pesaje> listrarPesaje = pesajeService.listar();
-		return new ResponseEntity<List<Pesaje>>(listrarPesaje, HttpStatus.OK);
+		List<Pesaje> listarPesaje = pesajeService.listar();
+		return new ResponseEntity<List<Pesaje>>(listarPesaje, HttpStatus.OK);
 	}
 	
 	@GetMapping("/{id_pesaje}")
@@ -48,6 +44,18 @@ public class PesajeController {
 	@GetMapping("/destarar/{estado}")
 	public ResponseEntity<List<Pesaje>> listarPorEstado(@PathVariable("estado") String estado){
 		List<Pesaje> listrarPesaje = pesajeService.listarPorEstado(estado);
+		return new ResponseEntity<List<Pesaje>>(listrarPesaje, HttpStatus.OK);
+	}
+	
+	@GetMapping("/operacion/{id_to}")
+	public ResponseEntity<List<Pesaje>> listarPorOperacion(@PathVariable("id_to") Integer id_to){
+		List<Pesaje> listrarPesaje = pesajeService.listarPorOperacion(id_to);
+		return new ResponseEntity<List<Pesaje>>(listrarPesaje, HttpStatus.OK);
+	}
+	
+	@GetMapping("/buscar/{cod_producto}")
+	public ResponseEntity<List<Pesaje>> listarPorCodProducto(@PathVariable("cod_producto") Integer cod_producto){
+		List<Pesaje> listrarPesaje = pesajeService.listarPorCodProducto(cod_producto);
 		return new ResponseEntity<List<Pesaje>>(listrarPesaje, HttpStatus.OK);
 	}
 	

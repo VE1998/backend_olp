@@ -17,6 +17,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.olpasa.exception.ModelNotFoundException;
 import com.olpasa.model.Conductor;
+import com.olpasa.model.Pesaje;
 import com.olpasa.service.IConductorService;
 
 @RestController
@@ -54,6 +55,12 @@ public class ConductorController {
 	public ResponseEntity<Conductor> modificar (@RequestBody Conductor sec) {
 		conductorService.modificar(sec);
 		return new ResponseEntity<Conductor>(HttpStatus.OK);
+	}
+	
+	@GetMapping("/buscar/{estado}")
+	public ResponseEntity<List<Conductor>> listarPorEstado(@PathVariable("estado") String estado){
+		List<Conductor> listrarConductor = conductorService.leerPorEstado(estado);
+		return new ResponseEntity<List<Conductor>>(listrarConductor, HttpStatus.OK);
 	}
 	
 }

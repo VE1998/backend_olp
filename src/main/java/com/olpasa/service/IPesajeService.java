@@ -10,4 +10,8 @@ public interface IPesajeService extends ICRUD<Pesaje>{
 	
 	
 	List<Pesaje> listarPorEstado(String estado);
+	
+	List<Pesaje> listarPorOperacion(Integer estado);
+	
+	List<Pesaje> listarPorCodProducto(Integer estado);
 }

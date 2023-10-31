@@ -46,6 +46,16 @@ public class PesajeServiceImpl implements IPesajeService{
 		return pesajerRepo.leerPorEstado(estado);
 	}
 
+	@Override
+	public List<Pesaje> listarPorOperacion(Integer id_to) {
+		return pesajerRepo.leerPorTipoOperacion(id_to);
+	}
+
+	@Override
+	public List<Pesaje> listarPorCodProducto(Integer cod_producto) {
+		return pesajerRepo.leerPorProducto(cod_producto);
+	}
+
 	
 	
 	

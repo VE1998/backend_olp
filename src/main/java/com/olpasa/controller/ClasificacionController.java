@@ -21,7 +21,7 @@ import com.olpasa.service.IClasificacionService;
 import com.olpasa.service.IClasificacionService;
 
 @RestController
-@RequestMapping("/clasificacion")
+@RequestMapping("/clasificaciones")
 public class ClasificacionController {
 
 	
