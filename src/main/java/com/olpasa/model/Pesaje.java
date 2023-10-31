@@ -16,8 +16,9 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
-@Entity
+
 @Table(name = "pesaje")
+@Entity
 public class Pesaje {
 
 	@Id
@@ -31,7 +32,7 @@ public class Pesaje {
 	private String tipo_operacion;
 	
 	@ManyToOne
-	@JoinColumn(name = "id_to", nullable = false, foreignKey = @ForeignKey(name = "fk_pesaje_operacion"))
+	@JoinColumn(name = "id_to", foreignKey = @ForeignKey(name = "fk_pesaje_operacion"))
 	private TipoOperacion id_to;
 	
 	@ManyToOne
@@ -64,19 +65,19 @@ public class Pesaje {
 	private Vehiculo id_vehiculo;
 	
 	@ManyToOne
-	@JoinColumn(name = "codigo_et", nullable = false, foreignKey = @ForeignKey(name = "fk_pesaje_empresa_transporte"))
+	@JoinColumn(name = "codigo_et", foreignKey = @ForeignKey(name = "fk_pesaje_empresa_transporte"))
 	private EmpresaTransporte codigo_et;
 	
 	@ManyToOne
-	@JoinColumn(name = "conductor", nullable = false, foreignKey = @ForeignKey(name = "fk_pesaje_conductor"))
+	@JoinColumn(name = "conductor", foreignKey = @ForeignKey(name = "fk_pesaje_conductor"))
 	private Conductor conductor;
 	
 	@ManyToOne
-	@JoinColumn(name = "id_parcela", nullable = false, foreignKey = @ForeignKey(name = "fk_pesaje_parcela"))
+	@JoinColumn(name = "id_parcela", foreignKey = @ForeignKey(name = "fk_pesaje_parcela"))
 	private Parcela id_parcela;
 	
 	@ManyToOne
-	@JoinColumn(name = "cod_producto", nullable = false, foreignKey = @ForeignKey(name = "fk_pesaje_producto"))
+	@JoinColumn(name = "cod_producto", foreignKey = @ForeignKey(name = "fk_pesaje_producto"))
 	private Producto cod_producto;
 	
 	@Column(name = "estado")
