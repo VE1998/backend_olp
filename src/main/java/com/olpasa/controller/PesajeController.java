@@ -41,10 +41,10 @@ public class PesajeController {
 	
 	
 	
-	@GetMapping(value="/destarar/{estado}") 
-	public ResponseEntity<List<Pesaje>> listarPorEstado(@PathVariable("estado") String estado){		
+	@GetMapping(value="/destarar")
+	public ResponseEntity<List<Pesaje>> listarPorEstado(){
 	    List<Pesaje> listarPesaje = new ArrayList<>();
-	    listarPesaje = pesajeService.listarPorEstado(estado);
+	    listarPesaje = pesajeService.listarPorEstado();
 	    return new ResponseEntity<List<Pesaje>>(listarPesaje, HttpStatus.OK);
 	}
 

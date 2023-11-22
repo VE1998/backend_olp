@@ -42,8 +42,8 @@ public class PesajeServiceImpl implements IPesajeService{
 	}
 
 	@Override
-	public List<Pesaje> listarPorEstado(String estado) {	
-		return pesajerRepo.leerPorEstado(estado);
+	public List<Pesaje> listarPorEstado() {
+		return pesajerRepo.leerPorEstado();
 	}
 
 	@Override

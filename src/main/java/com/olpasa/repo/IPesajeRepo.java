@@ -12,8 +12,8 @@ import com.olpasa.model.Pesaje;
 public interface IPesajeRepo extends JpaRepository<Pesaje, Integer>{
 	
 	
-	@Query(value = "SELECT * FROM pesaje p WHERE p.estado= :estado", nativeQuery = true)
-	List<Pesaje> leerPorEstado(@Param("estado") String estado);
+	@Query(value = "SELECT * FROM pesaje p WHERE p.estado='A' AND id_to=1", nativeQuery = true)
+	List<Pesaje> leerPorEstado();
 	
 	@Query(value = "SELECT * FROM pesaje WHERE id_to=:id_to", nativeQuery = true)
 	List<Pesaje> leerPorTipoOperacion(@Param("id_to") Integer id_to);

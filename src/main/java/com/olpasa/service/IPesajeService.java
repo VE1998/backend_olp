@@ -11,7 +11,7 @@ import com.olpasa.model.Pesaje;
 public interface IPesajeService extends ICRUD<Pesaje>{
 	
 	
-	List<Pesaje> listarPorEstado(String estado);
+	List<Pesaje> listarPorEstado();
 	
 	List<Pesaje> listarPorOperacion(Integer estado);
 	

@@ -29,8 +29,8 @@ public class EvaluacionCalidad {
 	@JoinColumn(name = "id_criterio", nullable = false, foreignKey = @ForeignKey(name = "fk_evaluacionCalidad_criterioCalidad"))
 	private CriterioCalidad id_criterio;
 	
-	@Column(columnDefinition = "DECIMAL(18,2)", name = "alto")
-	private BigDecimal alto;
+	@Column(columnDefinition = "DECIMAL(18,2)", name = "valor")
+	private BigDecimal valor;
 	
 	@Column(name = "codigo_um")
 	private String codigo_um;
@@ -72,11 +72,11 @@ public class EvaluacionCalidad {
 	}
 
 	public BigDecimal getValor() {
-		return alto;
+		return valor;
 	}
 
 	public void setValor(BigDecimal valor) {
-		this.alto = valor;
+		this.valor = valor;
 	}
 
 	public String getCodigo_um() {
