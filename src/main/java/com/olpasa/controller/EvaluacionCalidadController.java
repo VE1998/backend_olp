@@ -1,8 +1,8 @@
 package com.olpasa.controller;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -55,6 +55,12 @@ public class EvaluacionCalidadController {
 		evaluacionCalidadService.modificar(sec);
 		return new ResponseEntity<Object>(HttpStatus.OK);
 	}
-	
+
+	@GetMapping("/destarar/{id_pesaje}")
+	public ResponseEntity<List<EvaluacionCalidad>> leerPorIdPesaje(@PathVariable("id_pesaje") Integer id_pesaje){
+		List<EvaluacionCalidad> evaluacionLista = new ArrayList<>();
+		evaluacionLista = evaluacionCalidadService.listarPorIdPesaje(id_pesaje);
+		return new ResponseEntity<List<EvaluacionCalidad>>(evaluacionLista, HttpStatus.OK);
+	}
 	
 }

@@ -1,7 +1,6 @@
 package com.olpasa.service.impl;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,7 +39,9 @@ public class EvaluacionCalidadServiceImpl implements IEvaluacionCalidadService{
 	public void eliminar(Long id) {
 		//sectorRepo.deleteById(id);
 	}
-	
-	
-	
+
+	@Override
+	public List<EvaluacionCalidad> listarPorIdPesaje(Integer id_pesaje) {
+		return evaluacionCalidadRepo.listarPorIdPesaje(id_pesaje);
+	}
 }
