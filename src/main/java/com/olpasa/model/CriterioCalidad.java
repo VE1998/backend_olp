@@ -40,7 +40,7 @@ public class CriterioCalidad {
 	@Column(name = "factor_variable")
 	private String factor_variable;
 	
-	@Column(name = "impresion_tiket")
+	@Column(name = "impresion_ticket")
 	private String impresion_tiket;
 	
 	@Column(name = "estado")
