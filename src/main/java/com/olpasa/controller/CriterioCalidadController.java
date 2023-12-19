@@ -34,7 +34,7 @@ public class CriterioCalidadController {
 		return new ResponseEntity<List<CriterioCalidad>>(listrarCriterioCalidad, HttpStatus.OK);
 	}
 	
-	@GetMapping("/{id_sector}")
+	@GetMapping("/{id_criterio}")
 	public ResponseEntity<CriterioCalidad> leerPorId(@PathVariable("id_criterio") Integer id_criterio){
 		CriterioCalidad sectorId = criterioCalidadService.leerPorId(id_criterio);
 		if(sectorId == null) {
