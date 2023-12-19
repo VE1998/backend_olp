@@ -43,7 +43,7 @@ public class EvaluacionCalidadController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<EvaluacionCalidad> registrar (@RequestBody EvaluacionCalidad ev) {
+	public ResponseEntity<Object> registrar (@RequestBody EvaluacionCalidad ev) {
 		EvaluacionCalidad evaluacionCalidad = evaluacionCalidadService.registrar(ev);
 		//localhost:8080/sector/1
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(ev.getId_evaluacion()).toUri();
