@@ -1,7 +1,7 @@
 package com.olpasa.service.impl;
 
+import java.math.BigDecimal;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,6 +27,11 @@ public class PesajeServiceImpl implements IPesajeService{
 	}
 
 	@Override
+	public int updatePlanilla(BigDecimal castigo, Integer id_pesaje) throws Exception {
+        return  pesajerRepo.updateCastigoPlanilla(castigo, id_pesaje);
+    }
+
+	@Override
 	public Pesaje leerPorId(Integer id) {
 		return pesajerRepo.findById(id).orElse(null);
 	}
@@ -46,19 +51,5 @@ public class PesajeServiceImpl implements IPesajeService{
 		return pesajerRepo.leerPorEstado();
 	}
 
-	@Override
-	public List<Pesaje> listarPorOperacion(Integer id_to) {
-		return pesajerRepo.leerPorTipoOperacion(id_to);
-	}
 
-	@Override
-	public List<Pesaje> listarPorCodProducto(Integer cod_producto) {
-		return pesajerRepo.leerPorProducto(cod_producto);
-	}
-
-	
-	
-	
-		
-	
 }

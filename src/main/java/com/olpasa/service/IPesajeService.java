@@ -1,9 +1,7 @@
 package com.olpasa.service;
 
+import java.math.BigDecimal;
 import java.util.List;
-
-import org.springframework.data.repository.query.Param;
-import org.springframework.stereotype.Repository;
 
 import com.olpasa.model.Pesaje;
 
@@ -12,8 +10,8 @@ public interface IPesajeService extends ICRUD<Pesaje>{
 	
 	
 	List<Pesaje> listarPorEstado();
+
+	int updatePlanilla(BigDecimal castigo, Integer id_pesaje) throws Exception;
 	
-	List<Pesaje> listarPorOperacion(Integer estado);
-	
-	List<Pesaje> listarPorCodProducto(Integer estado);
+
 }

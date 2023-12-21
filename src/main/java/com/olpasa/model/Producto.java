@@ -56,9 +56,6 @@ public class Producto {
 	@JoinColumn(name = "id_clasificacion", nullable = false, foreignKey = @ForeignKey(name = "fk_producto_clas_contable"))
 	private ClasificacionContable id_clasificacion;
 	
-	@ManyToOne
-	@JoinColumn(name = "id_clas", nullable = false, foreignKey = @ForeignKey(name = "fk_producto_clasificacion"))
-	private Clasificacion id_clas;
 
 	public Integer getCod_producto() {
 		return cod_producto;
@@ -156,16 +153,5 @@ public class Producto {
 		this.id_clasificacion = id_clasificacion;
 	}
 
-	public Clasificacion getId_clas() {
-		return id_clas;
-	}
 
-	public void setId_clas(Clasificacion id_clas) {
-		this.id_clas = id_clas;
-	}
-	
-	
-	
-	
-	
 }

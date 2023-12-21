@@ -1,9 +1,9 @@
 package com.olpasa.controller;
 
+import java.math.BigDecimal;
 import java.util.List;
 
-import java.util.ArrayList;
-import java.util.List;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -43,28 +43,22 @@ public class PesajeController {
 	
 	@GetMapping(value="/destarar")
 	public ResponseEntity<List<Pesaje>> listarPorEstado(){
-	    List<Pesaje> listarPesaje = new ArrayList<>();
-	    listarPesaje = pesajeService.listarPorEstado();
+	    List<Pesaje> listarPesaje = pesajeService.listarPorEstado();
 	    return new ResponseEntity<List<Pesaje>>(listarPesaje, HttpStatus.OK);
 	}
 
-	
-	@GetMapping("/operacion/{id_to}")
-	public ResponseEntity<List<Pesaje>> listarPorOperacion(@PathVariable("id_to") Integer id_to){
-		List<Pesaje> listrarPesaje = pesajeService.listarPorOperacion(id_to);
-		return new ResponseEntity<List<Pesaje>>(listrarPesaje, HttpStatus.OK);
-	}
-	
-	@GetMapping("/buscar/{cod_producto}")
-	public ResponseEntity<List<Pesaje>> listarPorCodProducto(@PathVariable("cod_producto") Integer cod_producto){
-		List<Pesaje> listrarPesaje = pesajeService.listarPorCodProducto(cod_producto);
-		return new ResponseEntity<List<Pesaje>>(listrarPesaje, HttpStatus.OK);
-	}
-	
+
 	@PutMapping
 	public ResponseEntity<Object> modificar (@RequestBody Pesaje sec) {
 		pesajeService.modificar(sec);
 		return new ResponseEntity<Object>(HttpStatus.OK);
+	}
+
+	@Transactional
+	@PutMapping("/update/{castigo}/{id_pesaje}")
+	public ResponseEntity<Object> updatePlanilla (@PathVariable("castigo") BigDecimal castigo, @PathVariable("id_pesaje") Integer id_pesaje) throws Exception {
+		pesajeService.updatePlanilla(castigo, id_pesaje);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
 	

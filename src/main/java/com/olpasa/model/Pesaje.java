@@ -6,15 +6,10 @@ import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.ForeignKey;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
+import org.hibernate.query.sqm.FetchClauseType;
 
 
 @Table(name = "pesaje")
@@ -24,10 +19,8 @@ public class Pesaje {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id_pesaje;
-	
 	@Column(name = "num_ticket")
 	private String num_ticket;
-	
 	@Column(name = "tipo_operacion")
 	private String tipo_operacion;
 	
@@ -63,21 +56,24 @@ public class Pesaje {
 	@ManyToOne
 	@JoinColumn(name = "id_vehiculo", nullable = false, foreignKey = @ForeignKey(name = "fk_pesaje_vehiculo"))
 	private Vehiculo id_vehiculo;
-	
+
+	@ManyToOne
+	@JoinColumn(name = "vehiculo_id_vehiculo", foreignKey = @ForeignKey(name = "fk_pesaje_vehiculo2"))
+	private Vehiculo vehiculo_id_vehiculo;
 	@ManyToOne
 	@JoinColumn(name = "codigo_et", foreignKey = @ForeignKey(name = "fk_pesaje_empresa_transporte"))
 	private EmpresaTransporte codigo_et;
-	
+
 	@ManyToOne
-	@JoinColumn(name = "conductor", foreignKey = @ForeignKey(name = "fk_pesaje_conductor"))
+	@JoinColumn(name = "conductor", nullable = true, foreignKey = @ForeignKey(name = "FK_pesaje_conductor"))
 	private Conductor conductor;
 	
 	@ManyToOne
 	@JoinColumn(name = "id_parcela", foreignKey = @ForeignKey(name = "fk_pesaje_parcela"))
 	private Parcela id_parcela;
-	
+
 	@ManyToOne
-	@JoinColumn(name = "cod_producto", foreignKey = @ForeignKey(name = "fk_pesaje_producto"))
+	@JoinColumn(name = "cod_producto", nullable = true, foreignKey = @ForeignKey(name = "producto_pesaje_fk"))
 	private Producto cod_producto;
 	
 	@Column(name = "estado")
@@ -131,6 +127,7 @@ public class Pesaje {
 	
 	@Column(name = "numero")
 	private String numero;
+
 
 	public Integer getId_pesaje() {
 		return id_pesaje;
@@ -234,6 +231,14 @@ public class Pesaje {
 
 	public void setId_vehiculo(Vehiculo id_vehiculo) {
 		this.id_vehiculo = id_vehiculo;
+	}
+
+	public Vehiculo getVehiculo_id_vehiculo() {
+		return vehiculo_id_vehiculo;
+	}
+
+	public void setVehiculo_id_vehiculo(Vehiculo vehiculo_id_vehiculo) {
+		this.vehiculo_id_vehiculo = vehiculo_id_vehiculo;
 	}
 
 	public EmpresaTransporte getCodigo_et() {
@@ -348,7 +353,6 @@ public class Pesaje {
 		this.usuario_version = usuario_version;
 	}
 
-
 	public LocalDateTime getFecha_salida() {
 		return fecha_salida;
 	}
@@ -404,9 +408,4 @@ public class Pesaje {
 	public void setNumero(String numero) {
 		this.numero = numero;
 	}
-	
-	
-	
-	
-	
 }

@@ -1,7 +1,11 @@
 package com.olpasa.repo;
 
+import java.math.BigDecimal;
 import java.util.List;
+
+import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
@@ -12,15 +16,14 @@ import com.olpasa.model.Pesaje;
 public interface IPesajeRepo extends JpaRepository<Pesaje, Integer>{
 	
 	
-	@Query(value = "SELECT * FROM pesaje p WHERE p.estado='A' AND id_to=1", nativeQuery = true)
+	@Query(value = "SELECT * FROM pesaje p WHERE estado='A' AND id_to=1", nativeQuery = true)
 	List<Pesaje> leerPorEstado();
-	
-	@Query(value = "SELECT * FROM pesaje WHERE id_to=:id_to", nativeQuery = true)
-	List<Pesaje> leerPorTipoOperacion(@Param("id_to") Integer id_to);
-	
-	@Query(value = "SELECT * FROM pesaje WHERE cod_producto=:cod_producto", nativeQuery = true)
-	List<Pesaje> leerPorProducto(@Param("cod_producto") Integer cod_producto);
-	
-	
+
+
+	@Transactional
+	@Modifying
+	@Query("UPDATE Pesaje pe SET pe.castigo_planilla = :castigo_planilla WHERE pe.id_pesaje = :id_pesaje")
+	int updateCastigoPlanilla(@Param("castigo_planilla") BigDecimal castigo_planilla, @Param("id_pesaje") Integer id_pesaje) throws Exception;
+
 	
 }
