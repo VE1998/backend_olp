@@ -16,7 +16,7 @@ import com.olpasa.model.Pesaje;
 public interface IPesajeRepo extends JpaRepository<Pesaje, Integer>{
 	
 	
-	@Query(value = "SELECT * FROM pesaje p WHERE estado='A' AND id_to=1", nativeQuery = true)
+	@Query(value = "SELECT * FROM pesaje p WHERE p.estado='A' AND id_to=1", nativeQuery = true)
 	List<Pesaje> leerPorEstado();
 
 
@@ -24,6 +24,11 @@ public interface IPesajeRepo extends JpaRepository<Pesaje, Integer>{
 	@Modifying
 	@Query("UPDATE Pesaje pe SET pe.castigo_planilla = :castigo_planilla WHERE pe.id_pesaje = :id_pesaje")
 	int updateCastigoPlanilla(@Param("castigo_planilla") BigDecimal castigo_planilla, @Param("id_pesaje") Integer id_pesaje) throws Exception;
+
+	@Transactional
+	@Modifying
+	@Query("UPDATE Pesaje pe SET pe.castigo_importe = :castigo_importe WHERE pe.id_pesaje = :id_pesaje")
+	int updateCastigoImporte(@Param("castigo_importe") BigDecimal castigo_importe, @Param("id_pesaje") Integer id_pesaje) throws Exception;
 
 	
 }

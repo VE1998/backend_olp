@@ -12,6 +12,8 @@ public interface IPesajeService extends ICRUD<Pesaje>{
 	List<Pesaje> listarPorEstado();
 
 	int updatePlanilla(BigDecimal castigo, Integer id_pesaje) throws Exception;
+
+	int updateImporte(BigDecimal castigo, Integer id_pesaje) throws Exception;
 	
 
 }

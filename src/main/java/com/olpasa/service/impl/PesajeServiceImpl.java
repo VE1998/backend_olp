@@ -32,6 +32,11 @@ public class PesajeServiceImpl implements IPesajeService{
     }
 
 	@Override
+	public int updateImporte(BigDecimal castigo, Integer id_pesaje) throws Exception {
+		return  pesajerRepo.updateCastigoImporte(castigo, id_pesaje);
+	}
+
+	@Override
 	public Pesaje leerPorId(Integer id) {
 		return pesajerRepo.findById(id).orElse(null);
 	}

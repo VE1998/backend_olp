@@ -65,15 +65,15 @@ public class Pesaje {
 	private EmpresaTransporte codigo_et;
 
 	@ManyToOne
-	@JoinColumn(name = "conductor", nullable = true, foreignKey = @ForeignKey(name = "FK_pesaje_conductor"))
+	@JoinColumn(name = "conductor", foreignKey = @ForeignKey(name = "FK_pesaje_conductor"))
 	private Conductor conductor;
 	
 	@ManyToOne
-	@JoinColumn(name = "id_parcela", foreignKey = @ForeignKey(name = "fk_pesaje_parcela"))
+	@JoinColumn(name = "id_parcela", nullable = false, foreignKey = @ForeignKey(name = "fk_pesaje_parcela"))
 	private Parcela id_parcela;
 
 	@ManyToOne
-	@JoinColumn(name = "cod_producto", nullable = true, foreignKey = @ForeignKey(name = "producto_pesaje_fk"))
+	@JoinColumn(name = "cod_producto",foreignKey = @ForeignKey(name = "producto_pesaje_fk"))
 	private Producto cod_producto;
 	
 	@Column(name = "estado")

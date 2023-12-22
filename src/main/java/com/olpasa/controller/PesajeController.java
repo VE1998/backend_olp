@@ -55,9 +55,16 @@ public class PesajeController {
 	}
 
 	@Transactional
-	@PutMapping("/update/{castigo}/{id_pesaje}")
+	@PutMapping("/updatePlanilla/{castigo}/{id_pesaje}")
 	public ResponseEntity<Object> updatePlanilla (@PathVariable("castigo") BigDecimal castigo, @PathVariable("id_pesaje") Integer id_pesaje) throws Exception {
 		pesajeService.updatePlanilla(castigo, id_pesaje);
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
+
+	@Transactional
+	@PutMapping("/updateImporte/{castigo}/{id_pesaje}")
+	public ResponseEntity<Object> updateImporte (@PathVariable("castigo") BigDecimal castigo, @PathVariable("id_pesaje") Integer id_pesaje) throws Exception {
+		pesajeService.updateImporte(castigo, id_pesaje);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
