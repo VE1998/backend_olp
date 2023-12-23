@@ -13,4 +13,5 @@ public interface IEvaluacionCalidadRepo extends JpaRepository<EvaluacionCalidad,
     @Query(value = "SELECT * FROM evaluacion_calidad e where e.id_pesaje= :id_pesaje", nativeQuery = true)
     List<EvaluacionCalidad> listarPorIdPesaje(@Param("id_pesaje") Integer id_pesaje);
 
+
 }

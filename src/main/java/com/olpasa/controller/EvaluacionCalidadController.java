@@ -7,13 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.olpasa.exception.ModelNotFoundException;
@@ -61,6 +55,17 @@ public class EvaluacionCalidadController {
 		List<EvaluacionCalidad> evaluacionLista = new ArrayList<>();
 		evaluacionLista = evaluacionCalidadService.listarPorIdPesaje(id_pesaje);
 		return new ResponseEntity<List<EvaluacionCalidad>>(evaluacionLista, HttpStatus.OK);
+	}
+
+	@DeleteMapping("/{id_evaluacion}")
+	public ResponseEntity<Object>  eliminar(@PathVariable("id_evaluacion") Integer id_evaluacion) {
+		EvaluacionCalidad obj = evaluacionCalidadService.leerPorId(id_evaluacion);
+		if(obj == null) {
+			throw new ModelNotFoundException("ID NO ENCONTRADO: " + id_evaluacion);
+		}else {
+			evaluacionCalidadService.eliminar(id_evaluacion);
+		}
+		return new ResponseEntity<Object>(obj, HttpStatus.OK);
 	}
 	
 }

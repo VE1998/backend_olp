@@ -36,7 +36,7 @@ public class TipoOperacionServiceImpl implements ITipoOperacionService{
 	}
 
 	@Override
-	public void eliminar(Long id) {
+	public void eliminar(Integer id) {
 		// TODO Auto-generated method stub
 		
 	}

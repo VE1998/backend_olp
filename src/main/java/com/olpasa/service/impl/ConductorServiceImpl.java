@@ -37,7 +37,7 @@ public class ConductorServiceImpl implements IConductorService{
 	}
 
 	@Override
-	public void eliminar(Long id) {
+	public void eliminar(Integer id) {
 		// TODO Auto-generated method stub
 		
 	}

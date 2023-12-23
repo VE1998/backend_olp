@@ -1,5 +1,6 @@
 package com.olpasa.service.impl;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,8 +37,8 @@ public class EvaluacionCalidadServiceImpl implements IEvaluacionCalidadService{
 	}
 
 	@Override
-	public void eliminar(Long id) {
-		//sectorRepo.deleteById(id);
+	public void eliminar(Integer id) {
+       evaluacionCalidadRepo.deleteAllById(Collections.singleton(id));
 	}
 
 	@Override

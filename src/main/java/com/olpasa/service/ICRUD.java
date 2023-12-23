@@ -10,7 +10,7 @@ public interface ICRUD<T> {
 	T modificar(T t);
 	T leerPorId(Integer id);
 	List<T> listar();
-	void eliminar(Long id);
+	void eliminar(Integer id);
 	
 	
 }

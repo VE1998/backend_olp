@@ -37,7 +37,7 @@ public class ParcelaServiceImpl implements IParcelaService{
 	}
 
 	@Override
-	public void eliminar(Long id) {
+	public void eliminar(Integer id) {
 		//sectorRepo.deleteById(id);
 	}
 	

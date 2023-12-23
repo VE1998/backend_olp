@@ -19,7 +19,7 @@ public class EvaluacionCalidad {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_evaluacion")
-	private Integer id_evaluacion;
+	private Long id_evaluacion;
 	
 	@ManyToOne
 	@JoinColumn(name = "id_pesaje", nullable = false, foreignKey = @ForeignKey(name = "fk_evaluacionCalidad_pesaje"))
@@ -47,11 +47,14 @@ public class EvaluacionCalidad {
 	@Column(name = "usuario")
 	private String usuario;
 
-	public Integer getId_evaluacion() {
+	@Column(name = "tam_rac")
+	private String tam_rac;
+
+	public Long getId_evaluacion() {
 		return id_evaluacion;
 	}
 
-	public void setId_evaluacion(Integer id_evaluacion) {
+	public void setId_evaluacion(Long id_evaluacion) {
 		this.id_evaluacion = id_evaluacion;
 	}
 
@@ -77,6 +80,14 @@ public class EvaluacionCalidad {
 
 	public void setValor(BigDecimal valor) {
 		this.valor = valor;
+	}
+
+	public String getTam_rac() {
+		return tam_rac;
+	}
+
+	public void setTam_rac(String tam_rac) {
+		this.tam_rac = tam_rac;
 	}
 
 	public String getCodigo_um() {
@@ -118,9 +129,5 @@ public class EvaluacionCalidad {
 	public void setUsuario(String usuario) {
 		this.usuario = usuario;
 	}
-	
-	
-	
-	
-	
+
 }

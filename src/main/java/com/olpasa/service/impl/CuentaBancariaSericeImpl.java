@@ -38,10 +38,9 @@ public class CuentaBancariaSericeImpl implements ICuentaBancariaService{
 	}
 
 	@Override
-	public void eliminar(Long id) {
-		//sectorRepo.deleteById(id);
+	public void eliminar(Integer id) {
+
 	}
-	
-	
+
 	
 }
