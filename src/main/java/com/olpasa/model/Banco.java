@@ -19,10 +19,6 @@ public class Banco {
 	@Column(name = "nombre")
 	private String nombre;
 
-	@Column(name = "descripcion")
-	private String descripcion;
-	
-	
 	public Integer getId_banco() {
 		return id_banco;
 	}
@@ -39,15 +35,6 @@ public class Banco {
 		this.nombre = nombre;
 	}
 
-	public String getDescripcion() {
-		return descripcion;
-	}
 
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
-	
-	
-	
 	
 }
