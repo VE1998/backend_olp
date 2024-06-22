@@ -10,7 +10,7 @@ import java.util.Set;
 public class Usuario {
 
     @Id
-    @Column(name = "nombre_cuenta", length = 10)
+    @Column(name = "nombre_cuenta", length = 50)
     private String nombre_cuenta;
     @Column(name = "nombres")
     private  String nombres;
