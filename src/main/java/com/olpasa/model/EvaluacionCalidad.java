@@ -19,7 +19,7 @@ public class EvaluacionCalidad {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_evaluacion")
-	private Long id_evaluacion;
+	private Integer id_evaluacion;
 	
 	@ManyToOne
 	@JoinColumn(name = "id_pesaje", nullable = false, foreignKey = @ForeignKey(name = "fk_evaluacionCalidad_pesaje"))
@@ -50,11 +50,11 @@ public class EvaluacionCalidad {
 	@Column(name = "tam_rac")
 	private String tam_rac;
 
-	public Long getId_evaluacion() {
+	public Integer getId_evaluacion() {
 		return id_evaluacion;
 	}
 
-	public void setId_evaluacion(Long id_evaluacion) {
+	public void setId_evaluacion(Integer id_evaluacion) {
 		this.id_evaluacion = id_evaluacion;
 	}
 
